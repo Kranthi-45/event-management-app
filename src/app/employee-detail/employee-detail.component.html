@@ -33,9 +33,10 @@
               </tr>
               <tr>
                 <td colspan="4">
-                  <button (click)="onEmployeeListHandler()">Employee List</button>
-                  <button (click)="onEmpBtnClick(employeeData)" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
-                  <button (click)="onDeleteHandler(employeeData)">Delete</button></td>
+                  <button (click)="onEmployeeListHandler()" class="btn btn-primary">Employee List</button> &nbsp;
+                  <button (click)="onDeleteHandler(employeeData)" class="btn btn-danger" >Delete</button>  &nbsp;
+                  <button (click)="onEmpBtnClick(employeeData)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-secondary">Update</button>
+                </td>                  
               </tr>
             <tbody>
             </tbody>
@@ -72,7 +73,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="onSave()">Save changes</button>
+            <button type="button" class="btn btn-primary" (click)="onSave()" data-bs-dismiss="modal">Save changes</button>
           </div>
         </div>
       </div>

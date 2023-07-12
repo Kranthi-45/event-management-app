@@ -6,11 +6,12 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
+  // {path:"",component:HomeComponent},
+  {path:"", redirectTo: "/employees", pathMatch:'full'},
   {path:"home", component:HomeComponent},
   {path:"portal", component:PortalComponent},
   {path:"employees",component:EmployeesComponent},
-  {path:"employee-detail/:id",component:EmployeeDetailComponent},
+  {path:"employees/:id",component:EmployeeDetailComponent},
 ];
 
 @NgModule({
@@ -18,3 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

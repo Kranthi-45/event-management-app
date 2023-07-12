@@ -23,6 +23,6 @@ export class ApiService {
     return this.httpclient.post("http://localhost:3000/employees",emp);
   }
   public updateEmployee(emp:any) {
-    return this.httpclient.put("http://localhost:3000/employees",emp);
+    return this.httpclient.put("http://localhost:3000/employees/"+ emp.Id,emp);
   }
 }

@@ -25,12 +25,15 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.api.getAllEmployees().subscribe((data)=>{
-      console.log(data);
-      this.sampleData=data;   
-     });  
+    this.loadData();
   }
 
+  loadData(): void {
+    this.api.getAllEmployees().subscribe((data)=>{
+      console.log(data);
+      this.sampleData=data;   
+     }); 
+  }
   onEmpBtnClick(){
     var emp = new Employee();
     emp.Id=this.employeeForm.controls['id'].value;
@@ -40,12 +43,13 @@ export class EmployeesComponent implements OnInit {
     this.api.addEmployee(emp).subscribe((data)=>{
       console.log(data);
       console.log("successfully added");
-     });  
+      this.loadData();
+     }); 
   }
 
   onBtnClick(value:any){
     console.log("view details clicked", value)
     const id = value.id;
-    this.router.navigate(['employee-detail',id]);
+    this.router.navigate(['employees',id]);
   }
 }

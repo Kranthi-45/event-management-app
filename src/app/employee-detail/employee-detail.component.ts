@@ -28,7 +28,10 @@ export class EmployeeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log("employee ID: ", this.id);
+    this.loadData();
+  }
 
+  loadData(): void{
     this.api.getEmployeeById(this.id).subscribe((data)=>{
       console.log(data);
       this.employeeData=data;   
@@ -55,6 +58,7 @@ export class EmployeeDetailComponent implements OnInit {
     this.api.updateEmployee(emp).subscribe((data)=>{
       console.log(data);
       console.log("successfully Updated");
+      this.loadData();
      });  
   }
 
